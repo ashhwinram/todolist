@@ -4,8 +4,7 @@
   "description": "App to track the todo list",
   "main": "server/app.js",
   "scripts": {
-    "start": "",
-    "start:prod": "cd server && npm run start",
+    "start": "cd server && npm run start",
     "start:dev": "concurrently \"npm run server\" \"npm run client\" -k",
     "client": "cd client && npm run start",
     "server": "cd server && npm run start",
