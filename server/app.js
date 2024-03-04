@@ -5,14 +5,13 @@ const app = express();
 const dbUtils = require('./database');
 
 const PORT = process.env.PORT || 5000;
-const rootDir = __dirname.replace('\\server', '');
-app.use(express.static(path.join(rootDir, 'client/build')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const dbConnection = dbUtils.connectDB();
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(rootDir, 'client/build/index.html'));
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 app.post('/getTodos', (req, res) => {
